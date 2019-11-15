@@ -28,4 +28,31 @@ def my_blog(postID):
 
 # targil - create URL which gets 2 numbers and print their sum
 # 'sum/3/4' --> will display: 3 + 4 = 7
+@app.route('/sum/<int:x>/<int:y>')
+def sum(x, y):
+    return f'{x} + {y} = {x+y}'
+
+@app.route('/sumf/<float:x>/<float:y>')
+def sumf(x, y):
+    return f'{x} + {y} = {x+y}'
+
+@app.route('/w3')
+def goto_w3():
+    return redirect('https://www.w3schools.com/')
+
+@app.route('/admin')
+def hello_admin():
+    return 'Hello admin'
+
+@app.route('/user/<username>')
+def hello_user(username):
+    return f'Hello user : <span style="color:blue">{username}</span>'
+
+@app.route('/login/<name>')
+def hello_login(name):
+    if name == 'itay':
+        return redirect(url_for('hello_admin')) # redirect('/admin')
+    else:
+        return redirect(url_for('hello_user', username=name))
+
 app.run()
