@@ -69,13 +69,28 @@ def hellor():
 
 @app.route('/hellop/<user>')
 def hello_name12(user):
+    x = 12
     return render_template('hello_name.html', name = user)
 
 # tagril:
 # '/sumhtml/3/4' --> render_template
-# html --> 
+# html -->
 # x = 3
 # y = 4
 # sum = 7
+@app.route('/sump/<int:x>/<int:y>')
+def sum_temp(x, y):
+    return render_template('sum.html', x = x, y = y)
+
+@app.route('/dict')
+def dic_temp():
+    d = { 'phy' : 99, 'che' : 60, 'math' : 100}
+    #for key, value in d.item():
+    #    print(key, value)
+    return render_template('python.html', grades = d)
+
+@app.route('/css')
+def css_file():
+    return render_template('withcss.html')
 
 app.run()
