@@ -97,4 +97,8 @@ def css_file():
 def my_form():
     return render_template('form1.html')
 
+@app.route('/form_acc', methods = ['POST'])
+def accept_form():
+    return 'YOUR NAME : ' + request.form['name']
+
 app.run()
