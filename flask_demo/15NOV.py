@@ -93,4 +93,8 @@ def dic_temp():
 def css_file():
     return render_template('withcss.html')
 
+@app.route('/form')
+def my_form():
+    return render_template('form1.html')
+
 app.run()
