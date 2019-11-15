@@ -3,6 +3,7 @@ from flask import Flask
 from flask import render_template, request, redirect,url_for
 
 app = Flask(__name__)
+user_name = ""
 
 @app.route('/')
 def home_page():
@@ -99,6 +100,14 @@ def my_form():
 
 @app.route('/form_acc', methods = ['POST'])
 def accept_form():
+    global user_name
+    user_name = request.form['name']
+    # can also get id, pwd, birth-date ...
     return 'YOUR NAME : ' + request.form['name']
+
+@app.route('/getname')
+def print_name():
+    global user_name
+    return 'LAST NAME: ' + user_name
 
 app.run()
