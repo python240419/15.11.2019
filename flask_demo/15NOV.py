@@ -71,6 +71,11 @@ def hellor():
 def hello_name12(user):
     return render_template('hello_name.html', name = user)
 
-
+# tagril:
+# '/sumhtml/3/4' --> render_template
+# html --> 
+# x = 3
+# y = 4
+# sum = 7
 
 app.run()
